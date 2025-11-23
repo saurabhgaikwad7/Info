@@ -304,13 +304,13 @@ docker build -t travel-website https://github.com/<username>/<repo>.git
 ## **📌 Step 5 — Run Docker Container**
 
 ```bash
-docker run -d -p 8080:80 travel-website
+docker run -d -p 8081:80 travel-website
 ```
 
 Open in browser:
 
 ```
-http://localhost:8080
+http://localhost:8081
 ```
 
 ## ⚡ **Step 1 — Install Required Tools**
