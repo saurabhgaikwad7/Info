@@ -9,14 +9,14 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/saurabhgaikwad7/portfolio.git'
+                git branch: 'main', url: 'https://github.com/saurabhgaikwad7/Info.git'
             }
         }
 
         stage('Deploy to IIS') {
             steps {
                 bat '''
-                robocopy . "C:\\inetpub\\wwwroot\\PortfolioWebsite" /MIR
+                robocopy . "C:\\inetpub\\wwwroot\\PortWebsite" /MIR
                 echo Deployment Successful!
                 '''
             }
