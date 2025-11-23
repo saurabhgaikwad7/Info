@@ -1,1 +1,39 @@
+pipeline {
+    agent any
 
+    stages {
+
+        stage('Clone Code') {
+            steps {
+                echo "Cloning Repository..."
+                git url: 'https://github.com/saurabhgaikwad7/Info.git', branch: 'main'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo "No build needed for static portfolio website"
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo "Deploying Website..."
+
+                bat '''
+                echo Creating deployment directory...
+
+                if not exist "C:\\inetpub\\wwwroot\\PortWebsite" (
+                    mkdir "C:\\inetpub\\wwwroot\\PortWebsite"
+                )
+
+                echo Copying website files to IIS folder...
+
+                xcopy /Y /E /I * "C:\\inetpub\\wwwroot\\PortWebsite"
+
+                echo Deployment Successful!
+                '''
+            }
+        }
+    }
+}
